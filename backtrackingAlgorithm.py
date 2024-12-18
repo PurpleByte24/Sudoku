@@ -22,11 +22,22 @@ def solveSudoku(board):
                         board[row][col] = num #put the number in the cell
                         if solveSudoku(board):
                             return True #check the board again for the next cell
-                        board[row][col] = 0 #if the Sudoku is unsolvable like this, reset the cell to 0 and try another number
-                return True
-    return True        
+                        board[row][col] = 0 #backtrack
+                return False #if no number works, backtrack
+    return True #sudoku is solved        
+
+def joinList(board): 
+    solveSudoku(board)
+    newBoard = []
+    for row in board:
+        for num in row:
+            newBoard.append(num)
+    solvedBoard = newBoard
+    return solvedBoard
 
 def generateSudoku():
-    board = [[0] * 9 for _ in range(9)]
-    solveSudoku(board)
-    return board
+    blankBoard = [[0] * 9 for _ in range(9)]
+    solvedBoard = joinList(blankBoard)
+    return solvedBoard
+board = generateSudoku()
+print(board)

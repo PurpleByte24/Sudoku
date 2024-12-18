@@ -10,5 +10,9 @@ Built with Python (tkinter).
 
 ## Code Progress
 This project is still in development. It may not completely work yet.
+Planned features include:
+
+- Unique board calculation
+- Functionality of the buttons
 
 Enjoy!
